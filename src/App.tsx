@@ -39,11 +39,11 @@ const App: React.FC = () => {
   };
 
   const getColor = (value: number): string => {
-    if (value < 20) return '#FF0000';
-    if (value < 40) return '#FFA500';
-    if (value < 60) return '#FFFF00';
-    if (value < 80) return '#90EE90';
-    return '#008000';
+    if (value < 20) return '#FF5F5F'; // Bittersweet
+    if (value < 40) return '#17CE95'; // Mountain Meadow
+    if (value < 60) return '#00B1FF'; // Dodger Blue
+    if (value < 80) return '#00FFBC'; // Bright Turquoise
+    return '#6161FF'; // Cornflower Blue
   };
 
   const chartData = dimensions.map(dim => ({
@@ -73,21 +73,24 @@ const App: React.FC = () => {
       <div style={{ width: '100%', height: 400 }}>
         <ResponsiveContainer>
           <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.1)" />
+            <XAxis dataKey="name" tick={{ fill: 'white' }} />
+            <YAxis tick={{ fill: 'white' }} />
+            <Tooltip 
+              contentStyle={{ backgroundColor: '#1B2F3C', border: '1px solid #00FFBC' }}
+              labelStyle={{ color: 'white' }}
+              itemStyle={{ color: 'white' }}
+            />
+            <Legend wrapperStyle={{ color: 'white' }} />
             <Bar 
               dataKey="value" 
-              fill="#8884d8"
-              onMouseOver={(data) => {
-                if (data && typeof data.value === 'number') {
-                  return getColor(data.value);
-                }
-                return '#8884d8';
-              }}
-            />
+              fill="#00FFBC"
+              background={{ fill: 'rgba(0, 255, 188, 0.1)' }}
+            >
+              {chartData.map((entry, index) => (
+                <rect key={`rect-${index}`} fill={getColor(entry.value)} />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
