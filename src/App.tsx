@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import aiStrategyDataImport from './aiStrategyData.json';
+import aiStrategyData from './aiStrategyData.json';
 import './App.css';
 
-interface Feedback {
-  range: number[];
-  text: string;
-}
-
 interface Dimension {
-  id: number;
-  dimension: string;
-  question: string;
-  conservativeApproach: string;
-  aggressiveApproach: string;
-  feedback: Feedback[];
+  ID: number;
+  Dimension: string;
+  Question: string;
+  "Conservative Approach": string;
+  "Aggressive Approach": string;
+  "Strongly Conservative": string;
+  "Moderately Conservative": string;
+  "Slightly Conservative": string;
+  Balanced: string;
+  "Slightly Aggressive": string;
+  "Moderately Aggressive": string;
+  "Strongly Aggressive": string;
 }
-
-const aiStrategyData: Dimension[] = aiStrategyDataImport as Dimension[];
 
 const App: React.FC = () => {
   const [dimensions] = useState<Dimension[]>(aiStrategyData);
@@ -34,66 +32,39 @@ const App: React.FC = () => {
     setSliderValues(prev => ({ ...prev, [dimensionId]: newValue }));
   };
 
-  const getFeedback = (dimension: Dimension, value: number) => {
-    return dimension.feedback.find(f => value >= f.range[0] && value <= f.range[1])?.text || '';
+  const getFeedback = (dimension: Dimension, value: number): string => {
+    if (value < 14.3) return dimension["Strongly Conservative"];
+    if (value < 28.6) return dimension["Moderately Conservative"];
+    if (value < 42.9) return dimension["Slightly Conservative"];
+    if (value < 57.2) return dimension.Balanced;
+    if (value < 71.5) return dimension["Slightly Aggressive"];
+    if (value < 85.8) return dimension["Moderately Aggressive"];
+    return dimension["Strongly Aggressive"];
   };
-
-  const getColor = (value: number): string => {
-    if (value < 20) return '#FF5F5F'; // Bittersweet
-    if (value < 40) return '#17CE95'; // Mountain Meadow
-    if (value < 60) return '#00B1FF'; // Dodger Blue
-    if (value < 80) return '#00FFBC'; // Bright Turquoise
-    return '#6161FF'; // Cornflower Blue
-  };
-
-  const chartData = dimensions.map(dim => ({
-    name: dim.dimension,
-    value: sliderValues[dim.id] || 0,
-  }));
 
   return (
     <div className="App">
       <h1>AI Strategy Spectrum Tool</h1>
       {dimensions.map(dim => (
-        <div key={dim.id} className="dimension">
-          <h2>{dim.dimension}</h2>
-          <p>{dim.question}</p>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={sliderValues[dim.id] || 0}
-            onChange={(e) => handleSliderChange(dim.id, parseInt(e.target.value))}
-          />
-          <p>Value: {sliderValues[dim.id] || 0}</p>
-          <p>Feedback: {getFeedback(dim, sliderValues[dim.id] || 0)}</p>
+        <div key={dim.ID} className="dimension">
+          <h2>{dim.Dimension}</h2>
+          <p>{dim.Question}</p>
+          <div className="slider-container">
+            <span className="approach conservative">{dim["Conservative Approach"]}</span>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={sliderValues[dim.ID] || 0}
+              onChange={(e) => handleSliderChange(dim.ID, parseInt(e.target.value))}
+              className="slider"
+            />
+            <span className="approach aggressive">{dim["Aggressive Approach"]}</span>
+          </div>
+          <p className="feedback">Feedback: {getFeedback(dim, sliderValues[dim.ID] || 0)}</p>
         </div>
       ))}
       <h2>Overall Value: {overallValue.toFixed(2)}</h2>
-      <div style={{ width: '100%', height: 400 }}>
-        <ResponsiveContainer>
-          <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.1)" />
-            <XAxis dataKey="name" tick={{ fill: 'white' }} />
-            <YAxis tick={{ fill: 'white' }} />
-            <Tooltip 
-              contentStyle={{ backgroundColor: '#1B2F3C', border: '1px solid #00FFBC' }}
-              labelStyle={{ color: 'white' }}
-              itemStyle={{ color: 'white' }}
-            />
-            <Legend wrapperStyle={{ color: 'white' }} />
-            <Bar 
-              dataKey="value" 
-              fill="#00FFBC"
-              background={{ fill: 'rgba(0, 255, 188, 0.1)' }}
-            >
-              {chartData.map((entry, index) => (
-                <rect key={`rect-${index}`} fill={getColor(entry.value)} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
     </div>
   );
 };

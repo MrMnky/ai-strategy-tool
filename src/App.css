@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 body {
+  font-family: Arial, sans-serif;
   background-color: #1B2F3C;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
 }
 
 .App {
@@ -17,39 +16,48 @@ h1, h2 {
 }
 
 .dimension {
-  margin-bottom: 20px;
-  padding: 20px;
+  background-color: rgba(0, 177, 255, 0.1);
   border: 1px solid #00B1FF;
   border-radius: 10px;
-  background-color: rgba(0, 177, 255, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-input[type="range"] {
-  width: 100%;
-  margin: 10px 0;
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
 }
 
-/* Custom styling for the range input */
-input[type="range"] {
+.approach {
+  flex: 1;
+  font-size: 0.8em;
+}
+
+.conservative {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.aggressive {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.slider {
+  flex: 2;
   -webkit-appearance: none;
   width: 100%;
   height: 15px;
-  border-radius: 5px;  
+  border-radius: 5px;
   background: #1B2F3C;
   outline: none;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%; 
-  background: #00FFBC;
-  cursor: pointer;
-}
-
-input[type="range"]::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -57,23 +65,18 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
-/* Styling for the chart */
-.recharts-surface {
-  background-color: rgba(27, 47, 60, 0.7);
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #00FFBC;
+  cursor: pointer;
 }
 
-.recharts-cartesian-grid-horizontal line,
-.recharts-cartesian-grid-vertical line {
-  stroke: rgba(255, 255, 255, 0.1);
-}
-
-.recharts-xAxis .recharts-cartesian-axis-tick-value,
-.recharts-yAxis .recharts-cartesian-axis-tick-value {
-  fill: white;
-}
-
-.recharts-tooltip-wrapper {
-  background-color: #1B2F3C !important;
-  border: 1px solid #00FFBC !important;
-  color: white !important;
+.feedback {
+  background-color: rgba(0, 255, 188, 0.1);
+  border: 1px solid #00FFBC;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
 }
