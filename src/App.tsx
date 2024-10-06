@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import aiStrategyData from './aiStrategyData.json';
 import './App.css';
 
@@ -20,85 +20,93 @@ interface Dimension {
 const App: React.FC = () => {
   const [dimensions] = useState<Dimension[]>(aiStrategyData);
   const [sliderValues, setSliderValues] = useState<Record<number, number>>({});
-  const [overallValue, setOverallValue] = useState(0);
-
-  useEffect(() => {
-    const total = Object.values(sliderValues).reduce((sum, value) => sum + value, 0);
-    const average = total / dimensions.length;
-    setOverallValue(average);
-  }, [sliderValues, dimensions.length]);
+  const [activeDimension, setActiveDimension] = useState<number | null>(null);
 
   const handleSliderChange = (dimensionId: number, newValue: number) => {
     setSliderValues(prev => ({ ...prev, [dimensionId]: newValue }));
   };
 
-  const getOverallApproach = (value: number): string => {
-    if (value < 14.3) return "Strongly Conservative";
-    if (value < 28.6) return "Moderately Conservative";
-    if (value < 42.9) return "Slightly Conservative";
-    if (value < 57.2) return "Balanced";
-    if (value < 71.5) return "Slightly Aggressive";
-    if (value < 85.8) return "Moderately Aggressive";
+  const getApproachLabel = (value: number): string => {
+    if (value === 1) return "Strongly Conservative";
+    if (value === 2) return "Moderately Conservative";
+    if (value === 3) return "Slightly Conservative";
+    if (value === 4) return "Balanced";
+    if (value === 5) return "Slightly Aggressive";
+    if (value === 6) return "Moderately Aggressive";
     return "Strongly Aggressive";
   };
 
-  const getFeedback = (dimension: Dimension, value: number): string => {
-    if (value < 14.3) return dimension["Strongly Conservative"];
-    if (value < 28.6) return dimension["Moderately Conservative"];
-    if (value < 42.9) return dimension["Slightly Conservative"];
-    if (value < 57.2) return dimension.Balanced;
-    if (value < 71.5) return dimension["Slightly Aggressive"];
-    if (value < 85.8) return dimension["Moderately Aggressive"];
-    return dimension["Strongly Aggressive"];
+  const renderSliders = () => (
+    <div className="sliders-container">
+      {dimensions.map(dim => (
+        <div 
+          key={dim.ID} 
+          className={`slider-row ${activeDimension === dim.ID ? 'active' : ''}`}
+          onMouseEnter={() => setActiveDimension(dim.ID)}
+          onMouseLeave={() => setActiveDimension(null)}
+        >
+          <div className="slider-label">{dim.Dimension.split(' ')[0]}</div>
+          <div className="slider-wrapper">
+            <input
+              type="range"
+              min="1"
+              max="7"
+              step="1"
+              value={sliderValues[dim.ID] || 4}
+              onChange={(e) => handleSliderChange(dim.ID, parseInt(e.target.value))}
+              className="slider"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
+  const renderApproachDescriptions = () => (
+    <div className="approach-descriptions">
+      <h3>Approach Descriptions</h3>
+      {activeDimension && (
+        <div className="approach-description">
+          <h4>{dimensions.find(dim => dim.ID === activeDimension)?.Dimension}</h4>
+          <p><strong>Conservative:</strong> {dimensions.find(dim => dim.ID === activeDimension)?.["Conservative Approach"]}</p>
+          <p><strong>Aggressive:</strong> {dimensions.find(dim => dim.ID === activeDimension)?.["Aggressive Approach"]}</p>
+        </div>
+      )}
+    </div>
+  );
+
+  const renderFeedback = () => (
+    <div className="feedback-container">
+      <h3>Your Approach Feedback</h3>
+      {dimensions.map(dim => (
+        <div key={dim.ID}>
+          <h4>{dim.Question}</h4>
+          <p><strong>Your Approach:</strong> {getApproachLabel(sliderValues[dim.ID] || 4)}</p>
+          <p>{dim[getApproachLabel(sliderValues[dim.ID] || 4) as keyof Dimension]}</p>
+        </div>
+      ))}
+    </div>
+  );
+
+  const renderSummary = () => {
+    const averageValue = Object.values(sliderValues).reduce((sum, value) => sum + value, 0) / dimensions.length;
+    return (
+      <div className="summary-container">
+        <h3>Overall Approach: {getApproachLabel(Math.round(averageValue))}</h3>
+        <p>Your AI strategy leans towards a {getApproachLabel(Math.round(averageValue)).toLowerCase()} approach.</p>
+      </div>
+    );
   };
 
   return (
     <div className="App">
       <h1>AI Strategy Spectrum Tool</h1>
-      <div className="overall-approach">
-        <h2>Overall Approach: {getOverallApproach(overallValue)}</h2>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={overallValue}
-          className="slider"
-          disabled
-        />
-        <div className="slider-labels">
-          <span>Conservative</span>
-          <span>Aggressive</span>
-        </div>
+      <div className="top-container">
+        {renderSliders()}
+        {renderApproachDescriptions()}
       </div>
-      {dimensions.map(dim => (
-        <div key={dim.ID} className="dimension">
-          <h3>{dim.Question}</h3>
-          <div className="approach-comparison">
-            <div className="conservative">
-              <h4>Conservative</h4>
-              <p>{dim["Conservative Approach"]}</p>
-            </div>
-            <div className="aggressive">
-              <h4>Aggressive</h4>
-              <p>{dim["Aggressive Approach"]}</p>
-            </div>
-          </div>
-          <div className="slider-container">
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={sliderValues[dim.ID] || 0}
-              onChange={(e) => handleSliderChange(dim.ID, parseInt(e.target.value))}
-              className="slider"
-            />
-          </div>
-          <div className="your-approach">
-            <h4>Your Approach: {getOverallApproach(sliderValues[dim.ID] || 0)}</h4>
-            <p>{getFeedback(dim, sliderValues[dim.ID] || 0)}</p>
-          </div>
-        </div>
-      ))}
+      {renderFeedback()}
+      {renderSummary()}
     </div>
   );
 };
