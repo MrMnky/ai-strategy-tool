@@ -1,0 +1,292 @@
+[
+  {
+    "id": 1,
+    "dimension": "Development Approach:  Buy vs. Build",
+    "question": "Should your organisation develop custom AI tools or purchase off-the-shelf solutions?",
+    "conservativeApproach": "Conservative (Buy Off-the-Shelf Solutions): Prioritises cost control, rapid deployment, and reduced complexity. This approach is ideal for organisations that need immediate solutions but may sacrifice customisation and differentiation.",
+    "aggressiveApproach": "Aggressive (Build Custom Tools and Solutions): Emphasises tailored AI systems that perfectly fit your organisation's needs. While this approach requires a larger investment of resources, time, and talent, it can yield significant competitive advantage and unique capabilities.",
+    "feedback": [
+      {
+        "range": [0, 20],
+        "text": "The SME strongly favors purchasing off-the-shelf solutions."
+      },
+      {
+        "range": [21, 40],
+        "text": "The SME moderately favors off-the-shelf solutions but may explore limited customisation."
+      },
+      {
+        "range": [41, 60],
+        "text": "The SME takes a balanced approach, equally prioritising purchasing and building custom solutions."
+      },
+      {
+        "range": [61, 80],
+        "text": "The SME moderately favors custom development, focusing on building unique systems."
+      },
+      {
+        "range": [81, 100],
+        "text": "The SME strongly favors building custom AI tools, investing heavily in internal development."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "dimension": "Innovation Focus: Optimise vs. Disrupt",
+    "question": "Should your organisation focus on optimising existing processes or radically innovate with AI?",
+    "conservativeApproach": "Conservative (Optimise Existing Processes): Focuses on improving what already works, reducing operational inefficiencies, and enhancing productivity without taking large risks. It keeps disruption minimal and maintains stability.",
+    "aggressiveApproach": "Aggressive (Pursue Radically New Methods): Aimed at completely transforming business models and pioneering new processes. This brings the potential for massive gains but involves higher uncertainty and significant changes to existing systems.",
+    "feedback": [
+      {
+        "range": [0, 20],
+        "text": "The SME strongly favors optimising existing processes."
+      },
+      {
+        "range": [21, 40],
+        "text": "The SME moderately favors optimisation but is open to limited innovation."
+      },
+      {
+        "range": [41, 60],
+        "text": "The SME takes a balanced approach, equally prioritising optimisation and innovation."
+      },
+      {
+        "range": [61, 80],
+        "text": "The SME moderately favors pursuing disruptive methods with focus on key areas."
+      },
+      {
+        "range": [81, 100],
+        "text": "The SME strongly favors disruptive innovation, aiming to transform business models."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "dimension": "Risk Appetite: Low vs. High",
+    "question": "How much risk is your organisation willing to take on AI implementation?",
+    "conservativeApproach": "Conservative (Low Risk, Cautious AI Adoption): Involves careful testing, incremental adoption, and a focus on managing uncertainty. Ensures fewer disruptions but may limit the opportunity to capitalise on high-risk, high-reward initiatives.",
+    "aggressiveApproach": "Aggressive (High Risk, Full Integration): Seeks to implement AI at scale across multiple facets of the organisation quickly. While this approach promises substantial gains, it comes with increased exposure to risks, including regulatory and implementation challenges.",
+    "feedback": [
+      {
+        "range": [0, 20],
+        "text": "The SME strongly favors a low-risk approach."
+      },
+      {
+        "range": [21, 40],
+        "text": "The SME moderately favors cautious AI adoption."
+      },
+      {
+        "range": [41, 60],
+        "text": "The SME takes a balanced approach to risk, focusing on both mitigation and opportunities."
+      },
+      {
+        "range": [61, 80],
+        "text": "The SME moderately favors a high-risk approach, pursuing AI initiatives."
+      },
+      {
+        "range": [81, 100],
+        "text": "The SME strongly favors a high-risk strategy, rapidly integrating AI."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "dimension": "Automation & Decision-Making: Supportive vs. Transformative",
+    "question": "How much control should AI have in automating tasks and decision-making within your organisation?",
+    "conservativeApproach": "Conservative (Supportive, Human-Led): AI is used primarily to assist humans in decision-making and task execution. Critical decisions and complex actions remain firmly under human control, with AI serving a supporting role. This approach prioritises accountability, human expertise, and trust, especially in areas where the human touch or judgement is essential.",
+    "aggressiveApproach": "Aggressive (Transformative, AI-Led): AI takes the lead in both decision-making and task automation, with minimal human oversight. AI systems handle routine and complex decisions autonomously and execute tasks without human intervention. This approach drives efficiency and innovation but requires confidence in AI capabilities and carries the risk of bias or errors without human oversight.",
+    "feedback": [
+      {
+        "range": [0, 20],
+        "text": "The SME strongly favors human control over decision-making and task execution."
+      },
+      {
+        "range": [21, 40],
+        "text": "The SME moderately favors human-led processes, using AI to assist in decision-making."
+      },
+      {
+        "range": [41, 60],
+        "text": "The SME takes a balanced approach, integrating AI into task automation and decision-making."
+      },
+      {
+        "range": [61, 80],
+        "text": "The SME moderately favors AI-driven decision-making and automation."
+      },
+      {
+        "range": [81, 100],
+        "text": "The SME strongly favors full AI autonomy for decision-making and task execution."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "dimension": "Data Utilisation Strategy: Internal vs. External",
+    "question": "Should your organisation rely on internal data or explore external data sources for AI initiatives?",
+    "conservativeApproach": "Conservative (Internal, Structured Data Only): Leverages the organisation's existing, structured data, keeping data security risks lower but limiting insight richness.",
+    "aggressiveApproach": "Aggressive (External, Unstructured Data): Uses diverse data sources, including unstructured and real-time data. This yields a more comprehensive view for AI but requires advanced infrastructure and increased vigilance around data privacy and security.",
+    "feedback": [
+      {
+        "range": [0, 20],
+        "text": "The SME strongly favors using internal, structured data."
+      },
+      {
+        "range": [21, 40],
+        "text": "The SME moderately favors internal data but occasionally uses external data."
+      },
+      {
+        "range": [41, 60],
+        "text": "The SME takes a balanced approach, leveraging both internal and external data equally."
+      },
+      {
+        "range": [61, 80],
+        "text": "The SME moderately favors external data, including unstructured data for competitive advantage."
+      },
+      {
+        "range": [81, 100],
+        "text": "The SME strongly favors leveraging external and unstructured data extensively."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "dimension": "Collaboration & Partnership Strategy: In-house vs. Partnered",
+    "question": "Should your organisation develop AI capabilities in-house or partner with external vendors and institutions?",
+    "conservativeApproach": "Conservative (In-house Development): Prioritises internal capability building and minimises reliance on external partners, which gives more control but may slow innovation.",
+    "aggressiveApproach": "Aggressive (External Partnerships): Embraces partnerships with AI vendors, research institutions, and other organisations to accelerate progress and expand capabilities. This can lead to faster innovation but may involve shared IP and increased dependence on partners.",
+    "feedback": [
+      {
+        "range": [0, 20],
+        "text": "The SME strongly favors developing AI capabilities in-house."
+      },
+      {
+        "range": [21, 40],
+        "text": "The SME moderately favors in-house development, seeking external expertise occasionally."
+      },
+      {
+        "range": [41, 60],
+        "text": "The SME takes a balanced approach, developing core AI capabilities in-house and partnering for high-impact projects."
+      },
+      {
+        "range": [61, 80],
+        "text": "The SME moderately favors external partnerships, leveraging expertise for faster progress."
+      },
+      {
+        "range": [81, 100],
+        "text": "The SME strongly favors external partnerships to accelerate innovation with minimal in-house development."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "dimension": "Ethical & Regulatory Compliance: Adherence vs. Exploration",
+    "question": "How closely should your organisation adhere to existing ethical and regulatory frameworks when implementing AI?",
+    "conservativeApproach": "Conservative (Strict Adherence): Ensures full compliance with existing regulations and ethical standards, avoiding controversy but potentially missing out on more disruptive opportunities.",
+    "aggressiveApproach": "Aggressive (Pushing Boundaries): Seeks to explore new applications, sometimes in uncharted regulatory territory, which can lead to major breakthroughs but also increased scrutiny and potential legal challenges.",
+    "feedback": [
+      {
+        "range": [0, 20],
+        "text": "The SME strongly favors strict adherence to existing regulations and ethical guidelines."
+      },
+      {
+        "range": [21, 40],
+        "text": "The SME moderately favors strict adherence but is open to limited experimentation."
+      },
+      {
+        "range": [41, 60],
+        "text": "The SME takes a balanced approach, equally prioritising compliance and ethical innovation."
+      },
+      {
+        "range": [61, 80],
+        "text": "The SME moderately favors exploring new applications and pushing ethical boundaries."
+      },
+      {
+        "range": [81, 100],
+        "text": "The SME strongly favors pushing ethical and regulatory boundaries for major AI breakthroughs."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "dimension": "Customer Interaction Strategy: Human vs. AI-Led",
+    "question": "Should your organisation prioritise human-led or AI-led customer interactions?",
+    "conservativeApproach": "Conservative (Human-Led Interactions): Keeps human interactions at the centre of customer engagement, building trust and maintaining a personal touch, but may limit scalability.",
+    "aggressiveApproach": "Aggressive (AI-Led Automation for Customer Interactions): Uses AI to automate customer touchpoints, which enables scalability and responsiveness but can risk a loss of personalisation if not handled properly.",
+    "feedback": [
+      {
+        "range": [0, 20],
+        "text": "The SME strongly favors human-led customer interactions."
+      },
+      {
+        "range": [21, 40],
+        "text": "The SME moderately favors human-led interactions, with AI assisting in non-critical tasks."
+      },
+      {
+        "range": [41, 60],
+        "text": "The SME takes a balanced approach, using AI for routine interactions and humans for complex cases."
+      },
+      {
+        "range": [61, 80],
+        "text": "The SME moderately favors AI-led automation for customer interactions with minimal human involvement."
+      },
+      {
+        "range": [81, 100],
+        "text": "The SME strongly favors fully automating customer interactions with AI."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "dimension": "Speed of AI Implementation: Gradual vs. Rapid",
+    "question": "Should your organisation adopt AI gradually or pursue rapid AI implementation?",
+    "conservativeApproach": "Conservative (Gradual, Phased Implementation): Focuses on incremental steps, allowing teams to adapt and minimising risks. Ensures stability but may leave opportunities for faster competitors.",
+    "aggressiveApproach": "Aggressive (Rapid Implementation): Seeks fast adoption, capturing opportunities ahead of competitors. This approach can yield significant competitive advantages but needs robust change management to handle disruptions.",
+    "feedback": [
+      {
+        "range": [0, 20],
+        "text": "The SME strongly favors a gradual, phased approach to AI implementation."
+      },
+      {
+        "range": [21, 40],
+        "text": "The SME moderately favors gradual implementation with careful planning."
+      },
+      {
+        "range": [41, 60],
+        "text": "The SME takes a balanced approach, combining gradual implementation for complex systems and faster adoption for low-risk initiatives."
+      },
+      {
+        "range": [61, 80],
+        "text": "The SME moderately favors rapid AI implementation for quick wins and swift adoption."
+      },
+      {
+        "range": [81, 100],
+        "text": "The SME strongly favors rapid AI implementation for a competitive edge."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "dimension": "Talent & Workforce Transformation: Upskill vs. Overhaul",
+    "question": "How should your organisation approach talent transformation in response to AI adoption?",
+    "conservativeApproach": "Conservative (Gradual Upskilling): Emphasises enhancing the skills of the current workforce, building familiarity and maintaining organisational culture. The downside is slower adaptation to AI advancements.",
+    "aggressiveApproach": "Aggressive (Workforce Transformation): Focuses on recruiting new talent well-versed in AI and rapidly upskilling existing employees. This strategy enables faster adaptation to AI but may face cultural resistance and require significant investments in change management.",
+    "feedback": [
+      {
+        "range": [0, 20],
+        "text": "The SME strongly favors gradual upskilling of the existing workforce."
+      },
+      {
+        "range": [21, 40],
+        "text": "The SME moderately favors upskilling with limited new hires for specific needs."
+      },
+      {
+        "range": [41, 60],
+        "text": "The SME takes a balanced approach, combining internal upskilling with targeted hiring."
+      },
+      {
+        "range": [61, 80],
+        "text": "The SME moderately favors workforce transformation with rapid recruitment of AI talent."
+      },
+      {
+        "range": [81, 100],
+        "text": "The SME strongly favors workforce transformation with new AI talent and minimal upskilling."
+      }
+    ]
+  }
+]
