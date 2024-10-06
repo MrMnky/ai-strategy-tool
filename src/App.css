@@ -11,11 +11,11 @@ body {
   padding: 20px;
 }
 
-h1, h2 {
+h1, h2, h3, h4 {
   color: #00FFBC;
 }
 
-.dimension {
+.overall-approach {
   background-color: rgba(0, 177, 255, 0.1);
   border: 1px solid #00B1FF;
   border-radius: 10px;
@@ -23,36 +23,14 @@ h1, h2 {
   margin-bottom: 20px;
 }
 
-.slider-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.approach {
-  flex: 1;
-  font-size: 0.8em;
-}
-
-.conservative {
-  text-align: right;
-  padding-right: 10px;
-}
-
-.aggressive {
-  text-align: left;
-  padding-left: 10px;
-}
-
 .slider {
-  flex: 2;
   -webkit-appearance: none;
   width: 100%;
   height: 15px;
   border-radius: 5px;
   background: #1B2F3C;
   outline: none;
+  margin: 15px 0;
 }
 
 .slider::-webkit-slider-thumb {
@@ -73,10 +51,34 @@ h1, h2 {
   cursor: pointer;
 }
 
-.feedback {
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+}
+
+.dimension {
+  background-color: rgba(0, 177, 255, 0.1);
+  border: 1px solid #00B1FF;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.approach-comparison {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.conservative, .aggressive {
+  width: 48%;
+}
+
+.your-approach {
   background-color: rgba(0, 255, 188, 0.1);
   border: 1px solid #00FFBC;
   border-radius: 5px;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
